@@ -1,0 +1,62 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+}
+
+.app{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-image: url('/assets/home.png');
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.ancient-container{
+    display: flex;
+    flex-shrink: 0;
+    justify-content: space-around;
+    margin:40px 0;
+}
+
+.ancient-card{
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 260px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.active{
+    border: 7px solid rgb(92, 112, 153);
+    transform: scale(1.25);
+    box-shadow: 10px 5px 5px rgb(38, 53, 83);
+}
+
+.difficulty-container{
+    display: flex;
+    justify-content: space-around;
+    margin:20px 0;
+}
+
+.difficulty{
+    display: inline-block;
+    cursor: pointer;
+}
+
+.deck-container{
+    display: flex;
+    justify-content: space-around;
+    margin:20px 0;
+}
+
+.shuffle-button{
+cursor: pointer;
+}
