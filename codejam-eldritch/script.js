@@ -28,6 +28,7 @@ ancientCards.forEach((val)=>{
     })
 })
 
+shuffleButton.addEventListener('click', shuffleCards);
 deck.addEventListener('click',switchCard);
 
 function toggleActive(val){
@@ -41,7 +42,6 @@ function toggleActive(val){
         val.classList.add('active');
         deckContainer.innerHTML = ''
         deckContainer.append(shuffleButton);
-        shuffleButton.addEventListener('click', shuffleCards);
     }
 }
 
@@ -85,9 +85,11 @@ function createDeck(){
     const secondStageCards = unpackCards(secondStageArr)
     const thirdStageCards = unpackCards(thirdStageArr)
     cardDeck = [thirdStageCards, secondStageCards, firstStageCards] 
+    return cardDeck
 }
 
 function shuffleCards(){
+    lastCard.style.backgroundImage = ''
     createDeck();
     deckContainer.innerHTML = ''
     deckContainer.append(tracker)
@@ -96,23 +98,19 @@ function shuffleCards(){
 }
 
 function switchCard(){
-    console.log(cardDeck)
     let card = {}
     if (cardDeck[2].length > 0){
         card = getRandomCard(cardDeck[2])
         cardDeck[2] = cardDeck[2].filter(val => val !== card)
         lastCard.style.backgroundImage = `url(${card.cardFace})`
-        console.log(card)
     }else if (cardDeck[1].length > 0 && cardDeck[2].length === 0){
         card = getRandomCard(cardDeck[1])
         cardDeck[1] = cardDeck[1].filter(val => val !== card)
         lastCard.style.backgroundImage = `url(${card.cardFace})`
-        console.log(card)
     } else if (cardDeck[0].length > 0 && cardDeck[1].length === 0){
         card = getRandomCard(cardDeck[0])
         cardDeck[0] = cardDeck[0].filter(val => val !== card)
         lastCard.style.backgroundImage = `url(${card.cardFace})`
-        console.log(card)
     } else if (cardDeck[0].length === 0) {
         deck.style.display = 'none'
     }
