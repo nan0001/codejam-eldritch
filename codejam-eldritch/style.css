@@ -53,13 +53,16 @@ body{
 }
 
 .deck-container{
+    width: 50%;
     display: flex;
+    flex-shrink: 0;
     justify-content: space-around;
     margin:20px 0;
+    position: relative;
 }
 
 .shuffle-button{
-cursor: pointer;
+    cursor: pointer;
 }
 
 .deck, .last-card{
@@ -69,7 +72,50 @@ cursor: pointer;
     background-size: contain;
 }
 
+.bottom{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
 .deck{
     background-image: url('./assets/mythicCardBackground.png');
     cursor: pointer;
+}
+
+.tracker, .stage-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: aliceblue;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.dots-container{
+    display: flex;
+    gap: 10px;
+}
+
+.dot{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.green{
+    background-color: green;
+}
+
+.blue{
+    background-color: blue;
+}
+
+.brown{
+    background-color: brown;
 }

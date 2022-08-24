@@ -2,8 +2,6 @@ const ancientCards = document.querySelectorAll('.ancient-card');
 let activeAncient = {};
 let lastCard = document.createElement('div');
 let deck = document.createElement('div');
-let tracker = document.createElement('div');
-tracker.classList.add('tracker');
 deck.classList.add('deck');
 lastCard.classList.add('last-card');
 const deckContainer = document.querySelector('.deck-container');
@@ -88,13 +86,43 @@ function createDeck(){
     return cardDeck
 }
 
+const stageContainers = document.querySelectorAll('.stage-container')
+
+function countStageCards(stage, containerInd) {
+    let greenCount = 0;
+    let blueCount = 0;
+    let brownCount = 0;
+    for (let card of stage){
+        if (card.color === 'green'){
+            greenCount += 1
+        } else if (card.color === 'blue'){
+            blueCount +=1
+        } else if (card.color === 'brown'){
+            brownCount += 1
+        }
+    }
+    const greenDot = stageContainers[containerInd].querySelector('.green')
+    const blueDot = stageContainers[containerInd].querySelector('.blue')
+    const brownDot = stageContainers[containerInd].querySelector('.brown')
+
+    greenDot.innerHTML = greenCount;
+    blueDot.innerHTML = blueCount;
+    brownDot.innerHTML = brownCount
+}
+
+function trackCards(){
+    countStageCards(cardDeck[2], 0)
+    countStageCards(cardDeck[1], 1)
+    countStageCards(cardDeck[0], 2)
+}
+
 function shuffleCards(){
     lastCard.style.backgroundImage = ''
     createDeck();
     deckContainer.innerHTML = ''
-    deckContainer.append(tracker)
     deckContainer.append(deck)
     deckContainer.append(lastCard)    
+    trackCards()
 }
 
 function switchCard(){
@@ -114,6 +142,7 @@ function switchCard(){
     } else if (cardDeck[0].length === 0) {
         deck.style.display = 'none'
     }
+    trackCards()
 }
 
 function unpackCards(stage){
