@@ -4,6 +4,9 @@
 
 body{
     margin: 0;
+    color: aliceblue;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .app{
@@ -63,6 +66,13 @@ body{
 
 .shuffle-button{
     cursor: pointer;
+    width: 30%;
+    height: 40%;
+    margin: auto;
+    background-color: blueviolet;
+    color: aliceblue;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .deck, .last-card{
@@ -88,9 +98,6 @@ body{
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    color: aliceblue;
-    font-size: 18px;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 .dots-container{

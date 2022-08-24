@@ -7,6 +7,7 @@ lastCard.classList.add('last-card');
 const deckContainer = document.querySelector('.deck-container');
 let shuffleButton = document.createElement('button');
 let cardDeck = [];
+const dots = document.querySelectorAll('.dot')
 
 import brownCards from './data/mythicCards/brown/index.js';
 import blueCards from './data/mythicCards/blue/index.js';
@@ -40,6 +41,7 @@ function toggleActive(val){
         val.classList.add('active');
         deckContainer.innerHTML = ''
         deckContainer.append(shuffleButton);
+        dots.forEach((val)=> {val.innerHTML = ''})
     }
 }
 
