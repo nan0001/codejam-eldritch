@@ -15,7 +15,7 @@ body{
     height: 100vh;
     flex-direction: column;
     flex-wrap: wrap;
-    background-image: url('/assets/home.png');
+    background-image: url('./assets/home.png');
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
